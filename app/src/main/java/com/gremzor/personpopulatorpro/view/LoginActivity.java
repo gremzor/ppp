@@ -1,7 +1,6 @@
 package com.gremzor.personpopulatorpro.view;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.EditText;
 
 import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
@@ -15,12 +14,15 @@ import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity {
 
-    @Inject LoginPresenter loginPresenter;
+    @Inject
+    private LoginPresenter loginPresenter;
 
     @Bind(R.id.emailField)
+    private
     EditText emailFieldEditText;
 
     @Bind(R.id.passwordField)
+    private
     EditText passwordFieldEditText;
 
     @Override
@@ -30,12 +32,13 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    void doInjection() {
+    void init() {
         PersonPopulatorProApplication.getGraph().inject(this);
+        loginPresenter.loginActivity = this;
     }
 
     @OnClick (R.id.loginButton)
     public void onLoginClick() {
-        loginPresenter.testFunction();
+        loginPresenter.handleLoginClick(emailFieldEditText.getText().toString(), passwordFieldEditText.getText().toString());
     }
 }

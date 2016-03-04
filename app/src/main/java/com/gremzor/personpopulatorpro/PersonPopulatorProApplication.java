@@ -9,12 +9,21 @@ import com.gremzor.personpopulatorpro.di.MVPModule;
 
 public class PersonPopulatorProApplication extends Application {
     private static MVPComponent graph;
+    private static Firebase firebase;
 
     @Override
     public void onCreate() {
         super.onCreate();
         graph = DaggerMVPComponent.builder().mVPModule(new MVPModule()).build();
         Firebase.setAndroidContext(this);
+
+    }
+
+    public static Firebase getFirebase() {
+        if(firebase == null) {
+            firebase = new Firebase("https://sizzling-torch-4682.firebaseio.com/");
+        }
+        return firebase;
     }
 
     public static MVPComponent getGraph() {

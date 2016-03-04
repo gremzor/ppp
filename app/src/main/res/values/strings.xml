@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Person Populator Pro</string>
+    <string name="welcome_message">Welcome to PPP!</string>
+    <string name="please_login">Please Login</string>
+    <string name="hint_email">E-Mail</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login</string>
 </resources>

@@ -9,9 +9,9 @@ public abstract class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        doInjection();
+        init();
         ButterKnife.bind(this);
     }
 
-    abstract void doInjection();
+    abstract void init();
 }
