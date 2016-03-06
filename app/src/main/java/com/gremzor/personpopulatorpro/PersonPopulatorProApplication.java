@@ -14,9 +14,8 @@ public class PersonPopulatorProApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        graph = DaggerMVPComponent.builder().mVPModule(new MVPModule()).build();
+        graph = DaggerMVPComponent.builder().mVPModule(new MVPModule(this)).build();
         Firebase.setAndroidContext(this);
-
     }
 
     public static Firebase getFirebase() {
