@@ -6,14 +6,14 @@ import android.widget.EditText;
 import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
 import com.gremzor.personpopulatorpro.R;
 import com.gremzor.personpopulatorpro.presenter.LoginPresenter;
-import com.gremzor.personpopulatorpro.view.fragment.AuthDialogFragment;
+import com.gremzor.personpopulatorpro.view.fragment.CreateUserDialogFragmentListener;
 
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity implements AuthDialogFragment.AuthDialogFragmentListener{
+public class LoginActivity extends BaseActivity implements CreateUserDialogFragmentListener {
 
     @Inject
     LoginPresenter loginPresenter;

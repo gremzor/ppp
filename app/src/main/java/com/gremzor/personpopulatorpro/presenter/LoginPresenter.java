@@ -1,23 +1,14 @@
 package com.gremzor.personpopulatorpro.presenter;
 
 import android.content.Intent;
-import android.nfc.Tag;
-import android.util.Log;
 import android.widget.Toast;
 
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.Query;
 import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
 import com.gremzor.personpopulatorpro.auth.AuthFacade;
-import com.gremzor.personpopulatorpro.model.Person;
 import com.gremzor.personpopulatorpro.view.LoginActivity;
 import com.gremzor.personpopulatorpro.view.PersonActivity;
-import com.gremzor.personpopulatorpro.view.fragment.AuthDialogFragment;
-
-import java.util.Date;
+import com.gremzor.personpopulatorpro.view.fragment.CreateUserDialogFragment;
+import com.gremzor.personpopulatorpro.view.fragment.LoginFailedDialogFragment;
 
 import javax.inject.Inject;
 
@@ -37,10 +28,10 @@ public class LoginPresenter extends BasePresenter {
                         routeToPersonActivity();
                         break;
                     case AuthFacade.AuthFacadeInterface.AUTH_FAILURE_USER_DOES_NOT_EXIST:
-                        AuthDialogFragment.getCreateUserDialog().show(loginActivity.getFragmentManager(), "AuthDialogFragment");
+                        new CreateUserDialogFragment().show(loginActivity.getFragmentManager(), "CreateUserDialogFragment");
                         break;
                     case AuthFacade.AuthFacadeInterface.AUTH_FAILURE_INVALID_PASSWORD:
-                        AuthDialogFragment.getLoginFailedDialog().show(loginActivity.getFragmentManager(), "AuthDialogFragment");
+                        new LoginFailedDialogFragment().show(loginActivity.getFragmentManager(), "LoginFailedDialogFragment");
                         break;
                     default:
                         Toast.makeText(loginActivity, "Failed to login", Toast.LENGTH_SHORT).show();

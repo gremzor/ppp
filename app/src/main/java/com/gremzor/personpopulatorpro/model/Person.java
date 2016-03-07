@@ -8,6 +8,8 @@ public class Person {
     private Date dob;
     private String zip;
 
+    public String uniqueKey;
+
     public Person() {}
 
     public Person(String firstName, String lastName, Date dob, String zip) {

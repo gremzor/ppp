@@ -8,14 +8,21 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.gremzor.personpopulatorpro.R;
+import com.gremzor.personpopulatorpro.dao.PersonDAO;
 import com.gremzor.personpopulatorpro.model.Person;
 
+import java.text.DateFormat;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class PersonAdapter extends ArrayAdapter<Person>{
+
+    @Inject
+    PersonDAO personDAO;
 
     static class ViewHolder {
         @Bind(R.id.person_item_name) TextView name;
@@ -46,7 +53,7 @@ public class PersonAdapter extends ArrayAdapter<Person>{
         Person person = getItem(position);
 
         holder.name.setText(person.getLastName() + ", " + person.getFirstName());
-        holder.dob.setText(person.getDOB().toString());
+        holder.dob.setText(DateFormat.getDateInstance().format(person.getDOB()));
         holder.zip.setText(person.getZip());
 
         return convertView;
