@@ -5,6 +5,7 @@ import com.gremzor.personpopulatorpro.presenter.LoginPresenter;
 import com.gremzor.personpopulatorpro.presenter.PersonPresenter;
 import com.gremzor.personpopulatorpro.view.LoginActivity;
 import com.gremzor.personpopulatorpro.view.PersonActivity;
+import com.gremzor.personpopulatorpro.view.fragment.ModifyPersonDialogFragment;
 
 import javax.inject.Singleton;
 
@@ -18,4 +19,5 @@ public interface MVPComponent {
     void inject(PersonActivity personActivity);
     void inject(PersonPresenter personPresenter);
     void inject(PersonDAO personDAO);
+    void inject(ModifyPersonDialogFragment modifyPersonDialogFragment);
 }

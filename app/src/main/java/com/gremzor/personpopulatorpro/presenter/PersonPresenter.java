@@ -29,13 +29,15 @@ public class PersonPresenter extends BasePresenter implements PersonDAOInterface
 
     private PersonAdapter personAdapter;
 
+    private ArrayList<Person> arrayOfPersons;
+
     @Override
     void init() {
         PersonPopulatorProApplication.getGraph().inject(this);
     }
 
     public void loadPersons() {
-        ArrayList<Person> arrayOfPersons = new ArrayList<>();
+        arrayOfPersons = new ArrayList<>();
         personAdapter = new PersonAdapter(personActivity, arrayOfPersons);
         ListView listView = (ListView) personActivity.findViewById(R.id.person_listview);
         listView.setOnItemLongClickListener(this);
@@ -71,6 +73,13 @@ public class PersonPresenter extends BasePresenter implements PersonDAOInterface
     @Override
     public void onChildRemoved(Person person) {
         personAdapter.remove(person);
+    }
+
+    @Override
+    public void onChildChanged(Person person) {
+        int indexToChange = arrayOfPersons.indexOf(person);
+        arrayOfPersons.set(indexToChange, person);
+        personAdapter.notifyDataSetChanged();
     }
 
     @Override

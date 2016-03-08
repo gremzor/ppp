@@ -36,7 +36,9 @@ public class PersonDAO {
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                    Person person = dataSnapshot.getValue(Person.class);
+                    person.uniqueKey = dataSnapshot.getKey();
+                    personDAOInterface.onChildChanged(person);
                 }
 
                 @Override
