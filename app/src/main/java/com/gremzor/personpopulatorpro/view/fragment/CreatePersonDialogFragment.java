@@ -14,7 +14,7 @@ import java.util.GregorianCalendar;
 
 import butterknife.Bind;
 
-public class CreatePersonDialogFragment extends BaseDialogFragment<CreatePersonDialogFragmentListener>{
+public class CreatePersonDialogFragment extends BaseDialogFragment<CreateModifyPersonDialogFragmentListener>{
 
     @Bind(R.id.personFirstName)
     EditText firstNameET;

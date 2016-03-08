@@ -9,11 +9,11 @@ import com.gremzor.personpopulatorpro.R;
 import com.gremzor.personpopulatorpro.model.Person;
 import com.gremzor.personpopulatorpro.presenter.PersonPresenter;
 import com.gremzor.personpopulatorpro.view.fragment.CreatePersonDialogFragment;
-import com.gremzor.personpopulatorpro.view.fragment.CreatePersonDialogFragmentListener;
+import com.gremzor.personpopulatorpro.view.fragment.CreateModifyPersonDialogFragmentListener;
 
 import javax.inject.Inject;
 
-public class PersonActivity extends BaseActivity implements View.OnClickListener, CreatePersonDialogFragmentListener {
+public class PersonActivity extends BaseActivity implements View.OnClickListener, CreateModifyPersonDialogFragmentListener {
 
     @Inject
     PersonPresenter personPresenter;
@@ -43,5 +43,10 @@ public class PersonActivity extends BaseActivity implements View.OnClickListener
     @Override
     public void onAuthDialogPositiveClick(Person person) {
         personPresenter.handleAddUserClick(person);
+    }
+
+    @Override
+    public void onAuthDialogNeutralClick(String key) {
+        personPresenter.handleRemoveUserClick(key);
     }
 }

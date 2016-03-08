@@ -1,8 +1,11 @@
 package com.gremzor.personpopulatorpro.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
-public class Person {
+public class Person implements Parcelable{
     private String firstName;
     private String lastName;
     private Date dob;
@@ -19,6 +22,14 @@ public class Person {
         this.zip = zip;
     }
 
+    protected Person(Parcel in) {
+        firstName = in.readString();
+        lastName = in.readString();
+        dob = new Date(in.readLong());
+        zip = in.readString();
+        uniqueKey = in.readString();
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -33,5 +44,41 @@ public class Person {
 
     public String getZip() {
         return zip;
+    }
+
+    public static final Creator<Person> CREATOR = new Creator<Person>() {
+        @Override
+        public Person createFromParcel(Parcel in) {
+            return new Person(in);
+        }
+
+        @Override
+        public Person[] newArray(int size) {
+            return new Person[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeLong(dob.getTime());
+        dest.writeString(zip);
+        dest.writeString(uniqueKey);
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o instanceof Person)
+        {
+            if ( this.uniqueKey.equals(((Person) o).uniqueKey)) return true;
+        }
+        return false;
     }
 }

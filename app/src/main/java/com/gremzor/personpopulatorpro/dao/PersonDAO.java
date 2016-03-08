@@ -41,7 +41,9 @@ public class PersonDAO {
 
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                    Person person = dataSnapshot.getValue(Person.class);
+                    person.uniqueKey = dataSnapshot.getKey();
+                    personDAOInterface.onChildRemoved(person);
                 }
 
                 @Override
@@ -58,5 +60,9 @@ public class PersonDAO {
 
     public void addPerson (Person person) throws AuthFacade.UserNotLoggedInException{
         authFacade.getFirebase().child("persons").push().setValue(person);
+    }
+
+    public void removePerson (String key) throws AuthFacade.UserNotLoggedInException{
+        authFacade.getFirebase().child("persons").child(key).removeValue();
     }
 }
