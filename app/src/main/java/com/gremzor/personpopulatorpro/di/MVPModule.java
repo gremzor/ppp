@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.gremzor.personpopulatorpro.auth.AuthFacade;
 import com.gremzor.personpopulatorpro.dao.PersonDAO;
+import com.gremzor.personpopulatorpro.dao.UserNameDAO;
 import com.gremzor.personpopulatorpro.presenter.LoginPresenter;
 import com.gremzor.personpopulatorpro.presenter.PersonPresenter;
 
@@ -37,9 +38,16 @@ public class MVPModule {
         return new PersonPresenter();
     }
 
+    @Singleton
     @Provides
     PersonDAO providePersonDAO() {
         return new PersonDAO();
+    }
+
+    @Singleton
+    @Provides
+    UserNameDAO provideUserNameDAO() {
+        return new UserNameDAO();
     }
 
     @Singleton

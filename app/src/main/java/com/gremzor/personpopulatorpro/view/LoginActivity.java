@@ -5,6 +5,7 @@ import android.widget.EditText;
 
 import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
 import com.gremzor.personpopulatorpro.R;
+import com.gremzor.personpopulatorpro.dao.UserNameDAO;
 import com.gremzor.personpopulatorpro.presenter.LoginPresenter;
 import com.gremzor.personpopulatorpro.view.fragment.CreateUserDialogFragmentListener;
 
@@ -18,6 +19,9 @@ public class LoginActivity extends BaseActivity implements CreateUserDialogFragm
     @Inject
     LoginPresenter loginPresenter;
 
+    @Inject
+    UserNameDAO userNameDAO;
+
     @Bind(R.id.emailField)
     EditText emailFieldEditText;
 
@@ -28,6 +32,7 @@ public class LoginActivity extends BaseActivity implements CreateUserDialogFragm
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
+        emailFieldEditText.setText(userNameDAO.getSavedUser());
     }
 
     @Override

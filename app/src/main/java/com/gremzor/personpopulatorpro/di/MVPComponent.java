@@ -1,6 +1,7 @@
 package com.gremzor.personpopulatorpro.di;
 
 import com.gremzor.personpopulatorpro.dao.PersonDAO;
+import com.gremzor.personpopulatorpro.dao.UserNameDAO;
 import com.gremzor.personpopulatorpro.presenter.LoginPresenter;
 import com.gremzor.personpopulatorpro.presenter.PersonPresenter;
 import com.gremzor.personpopulatorpro.view.LoginActivity;
@@ -20,4 +21,5 @@ public interface MVPComponent {
     void inject(PersonPresenter personPresenter);
     void inject(PersonDAO personDAO);
     void inject(ModifyPersonDialogFragment modifyPersonDialogFragment);
+    void inject(UserNameDAO userNameDAO);
 }
