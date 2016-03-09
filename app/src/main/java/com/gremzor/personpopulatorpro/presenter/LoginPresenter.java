@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
+import com.gremzor.personpopulatorpro.R;
 import com.gremzor.personpopulatorpro.auth.AuthFacade;
 import com.gremzor.personpopulatorpro.view.LoginActivity;
 import com.gremzor.personpopulatorpro.view.PersonActivity;
@@ -34,7 +35,7 @@ public class LoginPresenter extends BasePresenter {
                         new LoginFailedDialogFragment().show(loginActivity.getFragmentManager(), "LoginFailedDialogFragment");
                         break;
                     default:
-                        Toast.makeText(loginActivity, "Failed to login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginActivity, R.string.failed_login, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -50,7 +51,7 @@ public class LoginPresenter extends BasePresenter {
                         handleLoginClick(email, password);
                         break;
                     default:
-                        Toast.makeText(loginActivity, "Failed to create user.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginActivity, R.string.failed_create_user, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

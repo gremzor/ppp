@@ -24,7 +24,7 @@ public class PersonDAO {
 
 
     public void registerForPersonEvents(final PersonDAOInterface personDAOInterface) throws AuthFacade.UserNotLoggedInException {
-            authFacade.getFirebase().child("persons").orderByChild("lastName").addChildEventListener(new ChildEventListener() {
+            authFacade.getFirebase().orderByChild("lastName").addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     Person person = dataSnapshot.getValue(Person.class);
@@ -59,10 +59,10 @@ public class PersonDAO {
     }
 
     public void addPerson (Person person) throws AuthFacade.UserNotLoggedInException{
-        authFacade.getFirebase().child("persons").push().setValue(person);
+        authFacade.getFirebase().push().setValue(person);
     }
 
     public void removePerson (String key) throws AuthFacade.UserNotLoggedInException{
-        authFacade.getFirebase().child("persons").child(key).removeValue();
+        authFacade.getFirebase().child(key).removeValue();
     }
 }

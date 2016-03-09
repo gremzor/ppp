@@ -3,22 +3,12 @@
     android:layout_width="250dp"
     android:layout_height="wrap_content">
 
-    <!--     <EditText
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:id="@+id/emailField"
-        android:hint="@string/hint_email"
-        android:imeOptions="actionNext"
-        android:singleLine="true"
-        android:inputType="textEmailAddress"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />-->
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/dialogTitle"
         android:layout_height="64dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Create Person"
+        android:text="@string/create_person"
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:textSize="18sp"/>
@@ -30,7 +20,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:hint="First Name"
+        android:hint="@string/first_name"
         android:imeOptions="actionNext"
         android:singleLine="true"
         android:inputType="textPersonName"/>
@@ -42,7 +32,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:hint="Last Name"
+        android:hint="@string/last_name"
         android:imeOptions="actionNext"
         android:singleLine="true"
         android:inputType="textPersonName"/>
@@ -55,7 +45,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:hint="Date of Birth"
+        android:hint="@string/dob_long"
         android:descendantFocusability="blocksDescendants"/>
 
     <EditText
@@ -65,7 +55,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:hint="ZIP"
+        android:hint="@string/zip"
         android:imeOptions="actionDone"
         android:singleLine="true"
         android:inputType="number"/>

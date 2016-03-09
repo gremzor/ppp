@@ -22,12 +22,12 @@ public class CreateUserDialogFragment extends BaseDialogFragment<CreateUserDialo
 
     @Override
     void setButtons(AlertDialog.Builder builder, final View view) {
-        builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 mListener.onAuthDialogPositiveClick(dialogPassword.getText().toString());
             }
         });
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton(R.string.cancel, null);
     }
 }

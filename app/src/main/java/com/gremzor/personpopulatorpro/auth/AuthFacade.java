@@ -11,12 +11,14 @@ import java.util.Map;
 public class AuthFacade {
 
     private static final String TAG = "AuthFacade";
+    private static final String personsPath = "persons";
+    private static final String fireBaseURL = "https://sizzling-torch-4682.firebaseio.com/";
     private Firebase firebase;
     private String userID;
 
     private Firebase getBaseFirebase() {
         if(firebase == null) {
-            firebase = new Firebase("https://sizzling-torch-4682.firebaseio.com/");
+            firebase = new Firebase(fireBaseURL);
         }
         return firebase;
     }
@@ -25,7 +27,7 @@ public class AuthFacade {
         if(userID == null) {
             throw new UserNotLoggedInException();
         }
-        return getBaseFirebase().child(userID);
+        return getBaseFirebase().child(userID).child(personsPath);
     }
 
     public void login(String email, String password, final AuthFacadeInterface authFacadeInterface) {
@@ -34,7 +36,6 @@ public class AuthFacade {
             public void onAuthenticated(AuthData authData) {
                 userID = authData.getUid();
                 authFacadeInterface.authStatus(AuthFacadeInterface.SUCCESS);
-                Log.d(TAG, "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
             }
 
             @Override

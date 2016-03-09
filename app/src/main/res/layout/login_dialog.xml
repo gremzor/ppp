@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Login Failed"
+        android:text="@string/login_failed"
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:textSize="18sp"/>

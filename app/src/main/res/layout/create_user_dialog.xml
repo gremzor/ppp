@@ -7,7 +7,7 @@
         android:id="@+id/dialogTitle"
         android:layout_height="64dp"
         android:background="@color/colorPrimaryDark"
-        android:text="User not found"
+        android:text="@string/user_not_found"
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:textSize="18sp"/>
@@ -29,5 +29,5 @@
         android:layout_marginBottom="10dp"
         android:textSize="12sp"
         android:gravity="center"
-        android:text="Confirm password to create account"/>
+        android:text="@string/password_hint_long"/>
 </LinearLayout>

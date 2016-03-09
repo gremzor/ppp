@@ -14,6 +14,6 @@ public class LoginFailedDialogFragment extends BaseDialogFragment{
 
     @Override
     void setButtons(AlertDialog.Builder builder, View view) {
-        builder.setNegativeButton("OK", null);
+        builder.setNegativeButton(R.string.ok, null);
     }
 }

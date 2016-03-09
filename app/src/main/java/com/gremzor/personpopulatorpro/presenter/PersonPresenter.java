@@ -22,6 +22,8 @@ import javax.inject.Inject;
 
 public class PersonPresenter extends BasePresenter implements PersonDAOInterface, AdapterView.OnItemLongClickListener {
 
+    private static final String TAG = "PersonPresenter";
+
     @Inject
     PersonDAO personDAO;
 
@@ -53,7 +55,7 @@ public class PersonPresenter extends BasePresenter implements PersonDAOInterface
         try {
             personDAO.addPerson(person);
         } catch (AuthFacade.UserNotLoggedInException e) {
-            Log.e("a", e.getMessage(), e);
+            Log.e(TAG, e.getMessage(), e);
         }
     }
 
@@ -61,7 +63,7 @@ public class PersonPresenter extends BasePresenter implements PersonDAOInterface
         try {
             personDAO.removePerson(key);
         } catch (AuthFacade.UserNotLoggedInException e) {
-            Log.e("a", e.getMessage(), e);
+            Log.e(TAG, e.getMessage(), e);
         }
     }
 

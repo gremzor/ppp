@@ -5,4 +5,23 @@
     <string name="hint_email">E-Mail</string>
     <string name="hint_password">Password</string>
     <string name="login">Login</string>
+    <string name="login_failed">Login Failed</string>
+    <string name="user_not_found">User not found</string>
+    <string name="create_person">Create Person</string>
+    <string name="name_label">Name:</string>
+    <string name="first_name">First Name</string>
+    <string name="password_hint_long">Confirm password to create account</string>
+    <string name="last_name">Last Name</string>
+    <string name="dob_label">DOB:</string>
+    <string name="dob_long">Date of Birth</string>
+    <string name="zip_label">ZIP:</string>
+    <string name="zip">ZIP</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="failed_login">Failed to login</string>
+    <string name="failed_create_user">Failed to create user.</string>
+    <string name="modify_person">Modify Person</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
 </resources>

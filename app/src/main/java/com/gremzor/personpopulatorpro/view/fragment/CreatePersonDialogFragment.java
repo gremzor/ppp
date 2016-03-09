@@ -35,7 +35,7 @@ public class CreatePersonDialogFragment extends BaseDialogFragment<CreateModifyP
 
     @Override
     void setButtons(AlertDialog.Builder builder, View view) {
-        builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 GregorianCalendar gregorianCalendar = new GregorianCalendar(dOBDP.getYear(), dOBDP.getMonth(), dOBDP.getDayOfMonth());
@@ -45,6 +45,6 @@ public class CreatePersonDialogFragment extends BaseDialogFragment<CreateModifyP
                 mListener.onAuthDialogPositiveClick(person);
             }
         });
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton(R.string.cancel, null);
     }
 }

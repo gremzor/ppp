@@ -13,7 +13,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Name:"
+            android:text="@string/name_label"
             android:layout_marginRight="10dp"
             android:textSize="@dimen/person_item_text_size"
             android:gravity="center"/>
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="DOB:"
+            android:text="@string/dob_label"
             android:gravity="center"/>
 
         <include layout="@layout/vertical_divider"/>
@@ -54,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="ZIP:"
+            android:text="@string/zip_label"
             android:gravity="center"/>
 
         <include layout="@layout/vertical_divider"/>
