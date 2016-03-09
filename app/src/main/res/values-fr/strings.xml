@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Personne Populator Pro</string>
+    <string name="welcome_message">Bienvenue sur PPP!</string>
+    <string name="please_login">S\'il vous plaît Connectez-vous</string>
+    <string name="hint_email">E-Mail</string>
+    <string name="hint_password">Mot de passe</string>
+    <string name="login">Entrer (Créer)</string>
+    <string name="login_failed">Échec de la connexion</string>
+    <string name="user_available">Nom d\'utilisateur disponible!</string>
+    <string name="create_person">Créer personne</string>
+    <string name="name_label">Prénom:</string>
+    <string name="first_name">le nom de baptême</string>
+    <string name="password_hint_long">Confirmer mot de passe pour créer un compte</string>
+    <string name="last_name">Nom de famille</string>
+    <string name="dob_label">né(e) le:</string>
+    <string name="dob_long">Date de naissance</string>
+    <string name="zip_label">ZIP:</string>
+    <string name="zip">ZIP</string>
+    <string name="create">Créer</string>
+    <string name="cancel">Annuler</string>
+    <string name="ok">D\'accord</string>
+    <string name="failed_login">Impossible de se connecter</string>
+    <string name="failed_create_user">Impossible de créer l\'utilisateur</string>
+    <string name="modify_person">Modifier personne</string>
+    <string name="save">sauvegarder</string>
+    <string name="delete">Effacer</string>
+</resources>

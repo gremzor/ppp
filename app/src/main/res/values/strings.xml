@@ -20,7 +20,7 @@
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
     <string name="failed_login">Failed to login</string>
-    <string name="failed_create_user">Failed to create user.</string>
+    <string name="failed_create_user">Failed to create user</string>
     <string name="modify_person">Modify Person</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
