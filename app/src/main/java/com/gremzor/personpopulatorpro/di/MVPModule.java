@@ -3,7 +3,6 @@ package com.gremzor.personpopulatorpro.di;
 import android.app.Application;
 import android.content.Context;
 
-import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
 import com.gremzor.personpopulatorpro.auth.AuthFacade;
 import com.gremzor.personpopulatorpro.dao.PersonDAO;
 import com.gremzor.personpopulatorpro.presenter.LoginPresenter;
@@ -17,7 +16,7 @@ import dagger.Provides;
 @Module
 public class MVPModule {
 
-    private Application application;
+    private final Application application;
 
     public MVPModule(Application application) {
         this.application = application;

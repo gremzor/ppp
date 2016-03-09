@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
-import com.firebase.client.Firebase;
 import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
 import com.gremzor.personpopulatorpro.auth.AuthFacade;
 import com.gremzor.personpopulatorpro.model.Person;
@@ -23,7 +22,7 @@ public class ModifyPersonDialogFragment extends CreatePersonDialogFragment{
     @Inject
     AuthFacade authFacade;
 
-    public static String PERSON_KEY = "person";
+    public static final String PERSON_KEY = "person";
 
     private Person person;
 
