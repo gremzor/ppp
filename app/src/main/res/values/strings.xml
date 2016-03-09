@@ -4,9 +4,9 @@
     <string name="please_login">Please Login</string>
     <string name="hint_email">E-Mail</string>
     <string name="hint_password">Password</string>
-    <string name="login">Login</string>
+    <string name="login">Login (Create)</string>
     <string name="login_failed">Login Failed</string>
-    <string name="user_not_found">User not found</string>
+    <string name="user_available">Username available!</string>
     <string name="create_person">Create Person</string>
     <string name="name_label">Name:</string>
     <string name="first_name">First Name</string>

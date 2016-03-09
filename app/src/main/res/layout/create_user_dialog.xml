@@ -7,7 +7,7 @@
         android:id="@+id/dialogTitle"
         android:layout_height="64dp"
         android:background="@color/colorPrimaryDark"
-        android:text="@string/user_not_found"
+        android:text="@string/user_available"
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:textSize="18sp"/>
