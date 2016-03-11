@@ -17,6 +17,9 @@ import com.gremzor.personpopulatorpro.view.adapter.PersonAdapter;
 import com.gremzor.personpopulatorpro.view.fragment.ModifyPersonDialogFragment;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.inject.Inject;
 
@@ -69,7 +72,20 @@ public class PersonPresenter extends BasePresenter implements PersonDAOInterface
 
     @Override
     public void onChildAdded(Person person) {
-        personAdapter.add(person);
+        addInOrder(person);
+
+    }
+
+    private void addInOrder(Person person) {
+        int index = 0;
+
+        for(int i = personAdapter.getCount()-1; i>=0; i--) {
+            if(personAdapter.getItem(i).compareTo(person) < 0 ) {
+                index = i+1;
+                break;
+            };
+        }
+        personAdapter.insert(person, index);
     }
 
     @Override
@@ -80,7 +96,11 @@ public class PersonPresenter extends BasePresenter implements PersonDAOInterface
     @Override
     public void onChildChanged(Person person) {
         int indexToChange = arrayOfPersons.indexOf(person);
+        boolean sortAfterAddingPerson = !arrayOfPersons.get(indexToChange).getLastName().equals(person.getLastName());
         arrayOfPersons.set(indexToChange, person);
+        if(sortAfterAddingPerson) {
+            Collections.sort(arrayOfPersons);
+        }
         personAdapter.notifyDataSetChanged();
     }
 

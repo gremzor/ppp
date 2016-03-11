@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
-public class Person implements Parcelable{
+public class Person implements Parcelable, Comparable<Person>{
     private String firstName;
     private String lastName;
     private Date dob;
@@ -70,6 +70,11 @@ public class Person implements Parcelable{
         dest.writeLong(dob.getTime());
         dest.writeString(zip);
         dest.writeString(uniqueKey);
+    }
+
+    @Override
+    public int compareTo(Person another) {
+        return this.lastName.compareTo(another.getLastName());
     }
 
     @Override

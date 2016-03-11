@@ -5,33 +5,34 @@ import android.util.Log;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
 
 import java.util.Map;
+
+import javax.inject.Inject;
 
 public class AuthFacade {
 
     private static final String TAG = "AuthFacade";
     private static final String personsPath = "persons";
-    private static final String fireBaseURL = "https://sizzling-torch-4682.firebaseio.com/";
-    private Firebase firebase;
     private String userID;
 
-    private Firebase getBaseFirebase() {
-        if(firebase == null) {
-            firebase = new Firebase(fireBaseURL);
-        }
-        return firebase;
+    @Inject
+    Firebase firebase;
+
+    public AuthFacade () {
+        PersonPopulatorProApplication.getGraph().inject(this);
     }
 
     public Firebase getFirebase() throws UserNotLoggedInException {
         if(userID == null) {
             throw new UserNotLoggedInException();
         }
-        return getBaseFirebase().child(userID).child(personsPath);
+        return firebase.child(userID).child(personsPath);
     }
 
     public void login(String email, String password, final AuthFacadeInterface authFacadeInterface) {
-        getBaseFirebase().authWithPassword(email, password, new Firebase.AuthResultHandler() {
+        firebase.authWithPassword(email, password, new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
                 userID = authData.getUid();
@@ -59,7 +60,7 @@ public class AuthFacade {
     }
 
     public void createUser (String email, String password, final AuthFacadeInterface authFacadeInterface) {
-        getBaseFirebase().createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
+        firebase.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
             @Override
             public void onSuccess(Map<String, Object> result) {
                 authFacadeInterface.authStatus(AuthFacadeInterface.SUCCESS);

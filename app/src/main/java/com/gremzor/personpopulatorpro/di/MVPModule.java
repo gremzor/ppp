@@ -3,6 +3,7 @@ package com.gremzor.personpopulatorpro.di;
 import android.app.Application;
 import android.content.Context;
 
+import com.firebase.client.Firebase;
 import com.gremzor.personpopulatorpro.auth.AuthFacade;
 import com.gremzor.personpopulatorpro.dao.PersonDAO;
 import com.gremzor.personpopulatorpro.dao.UserNameDAO;
@@ -18,9 +19,12 @@ import dagger.Provides;
 public class MVPModule {
 
     private final Application application;
+    private final String fireBaseURL;
 
-    public MVPModule(Application application) {
+    public MVPModule(Application application, String fireBaseURL) {
+        Firebase.setAndroidContext(application);
         this.application = application;
+        this.fireBaseURL = fireBaseURL;
     }
 
     @Provides
@@ -54,5 +58,11 @@ public class MVPModule {
     @Provides
     AuthFacade provideAuthManager () {
         return new AuthFacade();
+    }
+
+    @Singleton
+    @Provides
+    Firebase provideFirebase() {
+        return new Firebase(fireBaseURL);
     }
 }

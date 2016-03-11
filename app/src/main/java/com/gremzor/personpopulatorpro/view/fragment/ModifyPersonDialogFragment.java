@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,6 +23,8 @@ import javax.inject.Inject;
 import butterknife.Bind;
 
 public class ModifyPersonDialogFragment extends CreatePersonDialogFragment{
+
+    private static final String TAG = "ModifyPersonDialgFrgmnt";
 
     @Inject
     AuthFacade authFacade;
@@ -42,13 +45,16 @@ public class ModifyPersonDialogFragment extends CreatePersonDialogFragment{
         PersonPopulatorProApplication.getGraph().inject(this);
         person = getArguments().getParcelable(PERSON_KEY);
         Dialog dialog = super.onCreateDialog(savedInstanceState);
+
         firstNameET.setText(person.getFirstName());
         lastNameET.setText(person.getLastName());
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(person.getDOB());
         dOBDP.updateDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         zIPET.setText(person.getZip());
+
         dialogTitle.setText(R.string.modify_person);
+
         return dialog;
     }
 
@@ -58,29 +64,7 @@ public class ModifyPersonDialogFragment extends CreatePersonDialogFragment{
         builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Map<String, Object> fieldsToUpdate = new HashMap<>();
-                if(!person.getFirstName().equals(firstNameET.getText().toString())) {
-                   fieldsToUpdate.put(person.uniqueKey + firstNamePath, firstNameET.getText().toString());
-                }
-
-                if(!person.getLastName().equals(lastNameET.getText().toString())) {
-                    fieldsToUpdate.put(person.uniqueKey + lastNamePath, lastNameET.getText().toString());
-                }
-
-                GregorianCalendar gregorianCalendar = new GregorianCalendar(dOBDP.getYear(), dOBDP.getMonth(), dOBDP.getDayOfMonth());
-                if(!person.getDOB().equals(gregorianCalendar.getTime())) {
-                    fieldsToUpdate.put(person.uniqueKey + dobPath, gregorianCalendar.getTimeInMillis());
-                }
-
-                if(!person.getZip().equals(zIPET.getText().toString())) {
-                    fieldsToUpdate.put(person.uniqueKey + zipPath, zIPET.getText().toString());
-                }
-
-                try {
-                    authFacade.getFirebase().updateChildren(fieldsToUpdate);
-                } catch (AuthFacade.UserNotLoggedInException e) {
-                    e.printStackTrace();
-                }
+                handlePositiveButton();
             }
         });
         builder.setNeutralButton(R.string.delete, new DialogInterface.OnClickListener() {
@@ -90,5 +74,32 @@ public class ModifyPersonDialogFragment extends CreatePersonDialogFragment{
             }
         });
         builder.setNegativeButton(R.string.cancel, null);
+    }
+
+    private void handlePositiveButton() {
+        Map<String, Object> fieldsToUpdate = new HashMap<>();
+        if(!person.getFirstName().equals(firstNameET.getText().toString())) {
+           fieldsToUpdate.put(person.uniqueKey + firstNamePath, firstNameET.getText().toString());
+        }
+
+        if(!person.getLastName().equals(lastNameET.getText().toString())) {
+            fieldsToUpdate.put(person.uniqueKey + lastNamePath, lastNameET.getText().toString());
+        }
+
+        GregorianCalendar gregorianCalendar = new GregorianCalendar(dOBDP.getYear(), dOBDP.getMonth(), dOBDP.getDayOfMonth());
+        if(!person.getDOB().equals(gregorianCalendar.getTime())) {
+            fieldsToUpdate.put(person.uniqueKey + dobPath, gregorianCalendar.getTimeInMillis());
+        }
+
+        if(!person.getZip().equals(zIPET.getText().toString())) {
+            fieldsToUpdate.put(person.uniqueKey + zipPath, zIPET.getText().toString());
+        }
+        if(fieldsToUpdate.size() > 0) {
+            try {
+                authFacade.getFirebase().updateChildren(fieldsToUpdate);
+            } catch (AuthFacade.UserNotLoggedInException e) {
+                Log.e(TAG, "User not logged in");
+            }
+        }
     }
 }

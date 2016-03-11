@@ -9,12 +9,12 @@ import com.gremzor.personpopulatorpro.di.MVPModule;
 
 public class PersonPopulatorProApplication extends Application {
     private static MVPComponent graph;
+    private static final String fireBaseURL = "https://sizzling-torch-4682.firebaseio.com/";
 
     @Override
     public void onCreate() {
         super.onCreate();
-        graph = DaggerMVPComponent.builder().mVPModule(new MVPModule(this)).build();
-        Firebase.setAndroidContext(this);
+        graph = DaggerMVPComponent.builder().mVPModule(new MVPModule(this, fireBaseURL)).build();
     }
 
     public static MVPComponent getGraph() {
