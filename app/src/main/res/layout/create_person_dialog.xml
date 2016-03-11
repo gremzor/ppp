@@ -23,7 +23,8 @@
         android:hint="@string/first_name"
         android:imeOptions="actionNext"
         android:singleLine="true"
-        android:inputType="textPersonName"/>
+        android:inputType="textNoSuggestions"
+        android:digits="@string/allowableCharactersForName"/>
 
     <EditText
         android:id="@+id/personLastName"
@@ -36,7 +37,7 @@
         android:imeOptions="actionNext"
         android:singleLine="true"
         android:inputType="textNoSuggestions"
-        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
+        android:digits="@string/allowableCharactersForName"/>
 
     <DatePicker
         style="@android:style/Widget.DatePicker"
