@@ -35,7 +35,8 @@
         android:hint="@string/last_name"
         android:imeOptions="actionNext"
         android:singleLine="true"
-        android:inputType="textPersonName"/>
+        android:inputType="textNoSuggestions"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
 
     <DatePicker
         style="@android:style/Widget.DatePicker"
@@ -58,5 +59,6 @@
         android:hint="@string/zip"
         android:imeOptions="actionDone"
         android:singleLine="true"
-        android:inputType="number"/>
+        android:inputType="number"
+        android:maxLength="5"/>
 </LinearLayout>
