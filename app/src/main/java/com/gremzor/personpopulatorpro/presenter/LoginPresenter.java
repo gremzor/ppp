@@ -14,6 +14,10 @@ import com.gremzor.personpopulatorpro.view.fragment.LoginFailedDialogFragment;
 
 import javax.inject.Inject;
 
+/**
+ * Presents behavior behind the LoginActivity view.
+ */
+
 public class LoginPresenter extends BasePresenter {
 
     @Inject

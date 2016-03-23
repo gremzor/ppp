@@ -10,6 +10,10 @@ import com.gremzor.personpopulatorpro.R;
 
 import butterknife.Bind;
 
+/**
+ * User interface that allows a user to be created.
+ */
+
 public class CreateUserDialogFragment extends BaseDialogFragment<CreateUserDialogFragmentListener> {
 
     @Bind(R.id.dialogPassword)

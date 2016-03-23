@@ -5,6 +5,11 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
+/**
+ * Model for persons. Allows marshalling through the Parcelable interface. Equality is checked based
+ * on the unique key assigned by Firebase. Comparison is based on last name.
+ */
+
 public class Person implements Parcelable, Comparable<Person>{
     private String firstName;
     private String lastName;

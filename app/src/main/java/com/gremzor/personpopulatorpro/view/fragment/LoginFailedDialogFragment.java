@@ -6,6 +6,10 @@ import android.view.View;
 
 import com.gremzor.personpopulatorpro.R;
 
+/**
+ * User interface that alerts the user to a login failure.
+ */
+
 public class LoginFailedDialogFragment extends BaseDialogFragment{
     @Override
     View inflateFragmentView(LayoutInflater inflater) {

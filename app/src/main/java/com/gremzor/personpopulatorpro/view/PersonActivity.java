@@ -13,6 +13,10 @@ import com.gremzor.personpopulatorpro.view.fragment.CreateModifyPersonDialogFrag
 
 import javax.inject.Inject;
 
+/**
+ * View that allows a user to create or modify a person.
+ */
+
 public class PersonActivity extends BaseActivity implements View.OnClickListener, CreateModifyPersonDialogFragmentListener {
 
     @Inject

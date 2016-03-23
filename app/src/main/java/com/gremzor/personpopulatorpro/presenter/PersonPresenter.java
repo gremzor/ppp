@@ -23,6 +23,10 @@ import java.util.Comparator;
 
 import javax.inject.Inject;
 
+/**
+ * Presents behavior behind the PersonActivity view.
+ */
+
 public class PersonPresenter extends BasePresenter implements PersonDAOInterface, AdapterView.OnItemLongClickListener {
 
     private static final String TAG = "PersonPresenter";
@@ -50,7 +54,7 @@ public class PersonPresenter extends BasePresenter implements PersonDAOInterface
         try {
             personDAO.registerForPersonEvents(this);
         } catch (AuthFacade.UserNotLoggedInException e) {
-            e.printStackTrace();
+            Log.e(TAG, e.getMessage(), e);
         }
     }
 

@@ -14,6 +14,10 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.OnClick;
 
+/**
+ * View that allows a user to login.
+ */
+
 public class LoginActivity extends BaseActivity implements CreateUserDialogFragmentListener {
 
     @Inject

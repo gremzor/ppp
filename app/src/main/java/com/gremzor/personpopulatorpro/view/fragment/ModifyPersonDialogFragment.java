@@ -22,6 +22,10 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 
+/**
+ * User interface that allows a person to be modified.
+ */
+
 public class ModifyPersonDialogFragment extends CreatePersonDialogFragment{
 
     private static final String TAG = "ModifyPersonDialgFrgmnt";

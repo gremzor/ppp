@@ -10,6 +10,11 @@ import android.view.View;
 
 import butterknife.ButterKnife;
 
+/**
+ * Base dialogfragment provides basic functionality for all other DialogFragments.
+ * @param <T>
+ */
+
 abstract public class BaseDialogFragment <T> extends DialogFragment {
 
     T mListener;

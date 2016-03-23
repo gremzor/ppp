@@ -7,6 +7,10 @@ import com.gremzor.personpopulatorpro.PersonPopulatorProApplication;
 
 import javax.inject.Inject;
 
+/**
+ * Data access object that stores the last successfully logged in user name.
+ */
+
 public class UserNameDAO {
 
     @Inject

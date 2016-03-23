@@ -9,19 +9,19 @@ import com.gremzor.personpopulatorpro.model.Person;
 
 import javax.inject.Inject;
 
+/**
+ * Data access object for persons. Allows addition and removal of persons. Uses Firebase events to
+ * maintain the list of persons to ensure parity with back office.
+ */
+
 public class PersonDAO {
 
     @Inject
     AuthFacade authFacade;
 
     public PersonDAO () {
-        init();
-    }
-
-    void init() {
         PersonPopulatorProApplication.getGraph().inject(this);
     }
-
 
     public void registerForPersonEvents(final PersonDAOInterface personDAOInterface) throws AuthFacade.UserNotLoggedInException {
             authFacade.getFirebase().orderByChild("lastName").addChildEventListener(new ChildEventListener() {

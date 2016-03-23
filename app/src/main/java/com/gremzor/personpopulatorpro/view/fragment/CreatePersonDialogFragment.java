@@ -16,6 +16,10 @@ import java.util.GregorianCalendar;
 
 import butterknife.Bind;
 
+/**
+ * User interface that allows a person to be created.
+ */
+
 public class CreatePersonDialogFragment extends BaseDialogFragment<CreateModifyPersonDialogFragmentListener>{
 
     @Bind(R.id.personFirstName)

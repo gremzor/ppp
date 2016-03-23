@@ -19,6 +19,11 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Standard ArrayAdapter that allows the list of persons to be displayed in a list view, uses a
+ * view holder.
+ */
+
 public class PersonAdapter extends ArrayAdapter<Person>{
 
     @Inject

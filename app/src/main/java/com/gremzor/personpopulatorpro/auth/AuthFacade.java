@@ -11,6 +11,11 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+/**
+ * Facade for authentication. Provides methods that allow logging in and creating users. Also provides
+ * reference to the Firebase instance.
+ */
+
 public class AuthFacade {
 
     private static final String TAG = "AuthFacade";
